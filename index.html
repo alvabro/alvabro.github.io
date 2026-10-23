@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alvaro Ilizarbe</title>
+<meta name="description" content="Alvaro Ilizarbe is a visual artist and curator based in Los Angeles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wall: #ecece9;
+    --ink: #1c1c1c;
+    --quiet: #6b6b68;
+    --ph: #d6d6d1;
+    --ph-alt: #c8c8c2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --wall: #1d1d1c;
+      --ink: #ecece9;
+      --quiet: #9a9a95;
+      --ph: #2d2d2b;
+      --ph-alt: #363633;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--wall);
+    color: var(--ink);
+    font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    padding: 2.5rem clamp(1.25rem, 4vw, 3.5rem) 0;
+  }
+  .name {
+    font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    line-height: 1;
+    text-decoration: none;
+  }
+  nav { display: flex; gap: 1.5rem; }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  .intro {
+    max-width: 38rem;
+    margin: 1.5rem clamp(1.25rem, 4vw, 3.5rem) 3rem;
+    color: var(--quiet);
+  }
+
+  .grid {
+    columns: 3 18rem;
+    column-gap: clamp(1rem, 2.5vw, 2.5rem);
+    padding: 0 clamp(1.25rem, 4vw, 3.5rem) 5rem;
+  }
+  .work {
+    display: block;
+    break-inside: avoid;
+    margin: 0 0 clamp(1.5rem, 3vw, 2.75rem);
+    text-decoration: none;
+  }
+  /* Placeholder frame. Replace each .ph div with:
+     <img src="images/your-file.jpg" alt="Short description" width="1200" height="1500">
+     and keep the aspect ratio of the real photo. */
+  .ph { width: 100%; background: var(--ph); }
+  .ph.alt { background: var(--ph-alt); }
+  .work:hover .title { text-decoration: underline; text-underline-offset: 4px; }
+  .caption { margin-top: 0.6rem; font-size: 0.9rem; }
+  .title { font-weight: 500; }
+  .meta { color: var(--quiet); }
+
+  footer {
+    padding: 0 clamp(1.25rem, 4vw, 3.5rem) 3rem;
+    color: var(--quiet);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="name" href="index.html">Alvaro Ilizarbe</a>
+  <nav aria-label="Main">
+    <a href="index.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="shop.html">Shop</a>
+    <a href="mailto:you@example.com">Contact</a>
+  </nav>
+</header>
+
+<p class="intro">Visual artist and curator in Los Angeles. Painting, immersive installation, and sculpture.</p>
+
+<main>
+  <div class="grid">
+
+    <a class="work" href="work/work-1.html">
+      <div class="ph" style="aspect-ratio: 4 / 5"></div>
+      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Oil on canvas, 2026</span></div>
+    </a>
+
+    <a class="work" href="work/work-2.html">
+      <div class="ph alt" style="aspect-ratio: 3 / 2"></div>
+      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Immersive installation, 2025</span></div>
+    </a>
+
+    <a class="work" href="work/work-3.html">
+      <div class="ph" style="aspect-ratio: 1 / 1"></div>
+      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Sculpture, 2025</span></div>
+    </a>
+
+    <a class="work" href="work/work-4.html">
+      <div class="ph alt" style="aspect-ratio: 2 / 3"></div>
+      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Acrylic on panel, 2024</span></div>
+    </a>
+
+    <a class="work" href="work/work-5.html">
+      <div class="ph" style="aspect-ratio: 5 / 4"></div>
+      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Mixed media, 2024</span></div>
+    </a>
+
+    <a class="work" href="work/work-6.html">
+      <div class="ph alt" style="aspect-ratio: 4 / 5"></div>
+      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Oil on canvas, 2023</span></div>
+    </a>
+
+  </div>
+</main>
+
+<footer>&copy; Alvaro Ilizarbe</footer>
+
+</body>
+</html>
