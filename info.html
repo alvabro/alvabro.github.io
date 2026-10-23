@@ -1,0 +1,55 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Information — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <!-- Replace the gray box with your photo(s), one <img> line per photo:
+           <img src="images/alvaro.jpg" alt="Alvaro Ilizarbe in the studio">
+           Delete the gray box line once you add a real image. -->
+      <div class="ph" style="aspect-ratio: 4 / 5"></div>
+    </div>
+
+    <div class="details">
+      <h1>Alvaro Ilizarbe</h1>
+      <p class="quiet">Visual artist and curator, Los Angeles</p>
+
+      <!-- Placeholder bio built from what you've told me. Replace with your own text. -->
+      <p class="desc">Alvaro Ilizarbe is a visual artist and curator based in Los Angeles, born in Lima, Peru.</p>
+      <p class="desc">Working across painting, immersive installation, and sculpture, Alvaro also curates group exhibitions across disciplines and mediums.</p>
+
+      <p class="desc"><a class="email-link" href="#">Email</a>, <a href="https://www.instagram.com/alvaroilizarbe/" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+
+  </article>
+</main>
+
+<footer>&copy; Alvaro Ilizarbe</footer>
+
+<script>
+/* The email address is assembled only when Email is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.email-link').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    location.href = 'mailto:' + ['alvaro.ilizarbe', 'gmail.com'].join('@');
+  });
+});
+</script>
+
+</body>
+</html>
