@@ -5,10 +5,8 @@
   --ink: #1c1c1c;
   --quiet: #6b6b68;
   --ph: #e4e4e1;
+  --ph-alt: #d3d3ce;
   --pad: clamp(1rem, 1.3vw, 1.25rem);
-}
-@media (prefers-color-scheme: dark) {
-  :root { --wall: #1d1d1c; --ink: #ecece9; --quiet: #9a9a95; --ph: #2d2d2b; }
 }
 * { box-sizing: border-box; }
 body {
@@ -53,10 +51,16 @@ header a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .images { grid-column: 1 / span 2; display: grid; gap: var(--pad); }
 .images img, .images .ph { width: 100%; height: auto; display: block; }
 .images .ph { aspect-ratio: 3 / 2; background: var(--ph); }
-.details { grid-column: 3; position: sticky; top: var(--pad); }
+.details {
+  grid-column: 3;
+  position: sticky;
+  top: var(--pad);
+  max-height: calc(100vh - 2 * var(--pad));
+  overflow-y: auto;
+}
 @media (max-width: 50rem) {
   .work { grid-template-columns: 1fr; }
-  .details { grid-column: 1; position: static; margin-bottom: 1.5rem; }
+  .details { grid-column: 1; position: static; max-height: none; overflow: visible; margin-bottom: 1.5rem; }
   /* On narrow screens the text sits under the first image, before the rest */
   .images { display: contents; }
   .images > :first-child { order: 0; }
@@ -81,3 +85,39 @@ header a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .back a { text-decoration: none; }
 .back a:hover { text-decoration: underline; text-underline-offset: 4px; }
 footer { padding: 0 var(--pad) 3rem; color: var(--quiet); font-size: 0.9rem; }
+
+/* Homepage grid (used by index.html) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--pad);
+  padding: 0 var(--pad) 5rem;
+}
+@media (max-width: 40rem) {
+  .grid { grid-template-columns: 1fr; }
+}
+.tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  text-decoration: none;
+}
+.tile img, .tile .ph { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tile .ph { background: var(--ph); }
+.tile .ph.alt { background: var(--ph-alt); }
+
+/* Title appears on hover or keyboard focus */
+.label {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 3rem var(--pad) var(--pad);
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.tile:hover .label, .tile:focus-visible .label { opacity: 1; }
+.tile:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.meta { display: block; opacity: 0.8; }
+@media (prefers-reduced-motion: reduce) { .label { transition: none; } }
