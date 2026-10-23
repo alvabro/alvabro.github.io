@@ -1,20 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ALVARO ILIZARBE</title>
+<title>Alvaro Ilizarbe</title>
 <meta name="description" content="Alvaro Ilizarbe is a visual artist and curator based in Los Angeles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --wall: #ecece9;
+    --wall: #ffffff;
     --ink: #1c1c1c;
     --quiet: #6b6b68;
-    --ph: #d6d6d1;
-    --ph-alt: #c8c8c2;
+    --ph: #e4e4e1;
+    --ph-alt: #d3d3ce;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -30,60 +31,75 @@
     margin: 0;
     background: var(--wall);
     color: var(--ink);
-    font-family: "Instrument Sans", system-ui, -apple-system, "Helvetica", sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
+    font-family: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 1.35vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
   }
   a { color: inherit; }
   a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-    padding: 2.5rem clamp(1.25rem, 4vw, 3.5rem) 0;
-  }
-  .name {
-    font-family: "din-2014", sans-serif;
-    font-size: clamp(2.25rem, 6vw, 4.5rem);
-    line-height: 1;
-    text-decoration: none;
-  }
-  nav { display: flex; gap: 1.5rem; }
-  nav a { text-decoration: none; }
-  nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  :root { --pad: clamp(1rem, 1.3vw, 1.25rem); }
 
-  .intro {
-    max-width: 38rem;
-    margin: 1.5rem clamp(1.25rem, 4vw, 3.5rem) 3rem;
-    color: var(--quiet);
+  header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: baseline;
+    gap: 0.75rem 1.5rem;
+    padding: 1.1rem var(--pad) 0;
+    margin-bottom: clamp(3rem, 10vw, 9rem);
+  }
+  header a { text-decoration: none; }
+  header a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .nav-end { display: flex; justify-content: space-between; }
+  .contact { text-align: right; }
+  @media (max-width: 40rem) {
+    header { grid-template-columns: 1fr 1fr; }
+    .nav-end { display: contents; }
+    .contact { grid-column: 2; }
   }
 
   .grid {
-    columns: 3 18rem;
-    column-gap: clamp(1rem, 2.5vw, 2.5rem);
-    padding: 0 clamp(1.25rem, 4vw, 3.5rem) 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--pad);
+    padding: 0 var(--pad) 5rem;
+  }
+  @media (max-width: 40rem) {
+    .grid { grid-template-columns: 1fr; }
   }
   .work {
+    position: relative;
     display: block;
-    break-inside: avoid;
-    margin: 0 0 clamp(1.5rem, 3vw, 2.75rem);
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
     text-decoration: none;
   }
   /* Placeholder frame. Replace each .ph div with:
-     <img src="images/your-file.jpg" alt="Short description" width="1200" height="1500">
-     and keep the aspect ratio of the real photo. */
-  .ph { width: 100%; background: var(--ph); }
+     <img src="images/your-file.jpg" alt="Short description">
+     Images are cropped to fill the frame, so any shape of photo works. */
+  .ph, .work img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ph { background: var(--ph); }
   .ph.alt { background: var(--ph-alt); }
-  .work:hover .title { text-decoration: underline; text-underline-offset: 4px; }
-  .caption { margin-top: 0.6rem; font-size: 0.9rem; }
-  .title { font-weight: 500; }
-  .meta { color: var(--quiet); }
+
+  /* Title appears on hover or keyboard focus */
+  .label {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 3rem var(--pad) var(--pad);
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .work:hover .label, .work:focus-visible .label { opacity: 1; }
+  .work:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+  .meta { display: block; opacity: 0.8; }
+  @media (prefers-reduced-motion: reduce) { .label { transition: none; } }
 
   footer {
-    padding: 0 clamp(1.25rem, 4vw, 3.5rem) 3rem;
+    padding: 0 var(--pad) 3rem;
     color: var(--quiet);
     font-size: 0.9rem;
   }
@@ -92,50 +108,40 @@
 <body>
 
 <header>
-  <a class="name" href="index.html">ALVARO ILIZARBE</a>
-  <nav aria-label="Main">
-    <a href="index.html">Work</a>
-    <a href="about.html">About</a>
-    <a href="shop.html">Shop</a>
-    <a href="mailto:you@example.com">Contact</a>
-  </nav>
+  <a href="index.html">Alvaro Ilizarbe</a>
+  <a href="shop.html">Store</a>
+  <div class="nav-end">
+    <a href="about.html">Information</a>
+    <span class="contact"><a href="mailto:alvaro.ilizarbe@gmail.com">Email</a>, <a href="https://www.instagram.com/alvaroilizarbe" target="_blank" rel="noopener">Instagram</a></span>
+  </div>
 </header>
-
-<p class="intro">Visual artist and curator in Los Angeles. Painting, immersive installation, and sculpture.</p>
 
 <main>
   <div class="grid">
-
     <a class="work" href="work/work-1.html">
-      <div class="ph" style="aspect-ratio: 4 / 5"></div>
-      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Oil on canvas, 2026</span></div>
+      <div class="ph"></div>
+      <div class="label">Title of work<span class="meta">Oil on canvas, 2026</span></div>
     </a>
-
     <a class="work" href="work/work-2.html">
-      <div class="ph alt" style="aspect-ratio: 3 / 2"></div>
-      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Immersive installation, 2025</span></div>
+      <div class="ph alt"></div>
+      <div class="label">Title of work<span class="meta">Immersive installation, 2025</span></div>
     </a>
-
     <a class="work" href="work/work-3.html">
-      <div class="ph" style="aspect-ratio: 1 / 1"></div>
-      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Sculpture, 2025</span></div>
+      <div class="ph"></div>
+      <div class="label">Title of work<span class="meta">Sculpture, 2025</span></div>
     </a>
-
     <a class="work" href="work/work-4.html">
-      <div class="ph alt" style="aspect-ratio: 2 / 3"></div>
-      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Acrylic on panel, 2024</span></div>
+      <div class="ph alt"></div>
+      <div class="label">Title of work<span class="meta">Acrylic on panel, 2024</span></div>
     </a>
-
     <a class="work" href="work/work-5.html">
-      <div class="ph" style="aspect-ratio: 5 / 4"></div>
-      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Mixed media, 2024</span></div>
+      <div class="ph"></div>
+      <div class="label">Title of work<span class="meta">Mixed media, 2024</span></div>
     </a>
-
     <a class="work" href="work/work-6.html">
-      <div class="ph alt" style="aspect-ratio: 4 / 5"></div>
-      <div class="caption"><span class="title">Title of work</span><br><span class="meta">Oil on canvas, 2023</span></div>
+      <div class="ph alt"></div>
+      <div class="label">Title of work<span class="meta">Oil on canvas, 2023</span></div>
     </a>
-
   </div>
 </main>
 
