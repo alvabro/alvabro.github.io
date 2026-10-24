@@ -1,0 +1,59 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burst — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <img src="/work/burst/burst-01.jpg" alt="Burst, image 1 of 4">
+      <img src="/work/burst/burst-02.jpg" alt="Burst, image 2 of 4" loading="lazy">
+      <img src="/work/burst/burst-03.jpg" alt="Burst, image 3 of 4" loading="lazy">
+      <img src="/work/burst/burst-04.jpg" alt="Burst, image 4 of 4" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>Burst</h1>
+      <p class="quiet">2026, Varnished acrylic paint on routered MDF, 18.5 x 18.5 x 1.5 in</p>
+
+      <div class="buy">
+        <p class="quiet"><a class="inquire" href="#" data-subject="Burst">Inquire</a></p>
+        <!-- If Burst is for sale, paste your Stripe link in the href and remove the arrows around this line:
+        <a class="button" href="https://buy.stripe.com/your-link">Buy</a>
+        -->
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<p class="back"><a href="/">&larr; Back to work</a></p>
+
+<footer>&copy; Alvaro Ilizarbe</footer>
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>
