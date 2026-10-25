@@ -1,8 +1,8 @@
-<header>
-  <a href="/">&copy;ALVARO ILIZARBE</a>
+{% if include.footer %}<footer class="bar">{% else %}<header class="bar">{% endif %}
+  <a class="site-name" href="/">ALVARO ILIZARBE</a>
   <a href="/shop/shop.html">Shop</a>
   <div class="nav-end">
     <a href="/info.html">Info</a>
     <span class="contact"><a href="https://www.instagram.com/alvaroilizarbe/" target="_blank" rel="noopener">Instagram</a></span>
   </div>
-</header>
+{% if include.footer %}</footer>{% else %}</header>{% endif %}
