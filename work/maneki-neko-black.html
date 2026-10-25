@@ -1,0 +1,74 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GUMS-MANEKI-NEKO (Black) — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <img src="/work/manekineko/black-candle_01.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 1 of 11">
+      <img src="/work/manekineko/black-candle_02.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 2 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_03.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 3 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_04.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 4 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_05.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 5 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_06.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 6 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_07.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 7 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_08.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 8 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_09.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 9 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_10.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 10 of 11" loading="lazy">
+      <img src="/work/manekineko/black-candle_11.JPG" alt="GUMS-MANEKI-NEKO (Black) candle, image 11 of 11" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>GUMS-MANEKI-NEKO (Black)</h1>
+      <p>$180</p>
+
+      <p class="desc">Love Luck Joy Wealth<br>
+      Manifest your Destiny.<br>
+      Set your intention and set it free.<br>
+      Light your wish and see it through.<br>
+      What you seek is seeking you.</p>
+      <p class="desc">Whatever you want, need, or seek. Wish it upon lighting this candle. Make sure to place it somewhere safe. Let it burn all the way through.</p>
+      <p class="desc">Only 200 made.</p>
+      <p class="desc">Black candle weighs approx. 4.25 lbs and is 6.5 in. w x 6.5 in. l x 7 in. h.</p>
+      <p class="desc quiet">Due to the fragility of the wax some detail may be lost or damaged during the handling process.</p>
+      <p class="desc quiet">Candle was made in collaboration with and produced by Cross Studio.</p>
+      <p class="desc quiet">Shipping is added at checkout.</p>
+
+      <div class="buy">
+        <a class="button" href="https://buy.stripe.com/00weV7f3a7yx5ajdsRcfK02">Buy</a>
+        <p class="quiet" style="margin-top: 1rem"><a class="inquire" href="#" data-subject="GUMS-MANEKI-NEKO (Black)">Inquire</a></p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+{% include header.html footer=true %}
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>

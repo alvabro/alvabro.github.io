@@ -1,0 +1,60 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <img src="/work/ma/ma-01.jpg" alt="MA, image 1 of 8">
+      <img src="/work/ma/ma-02.jpg" alt="MA, image 2 of 8" loading="lazy">
+      <img src="/work/ma/ma-03.jpg" alt="MA, image 3 of 8" loading="lazy">
+      <img src="/work/ma/ma-04.jpg" alt="MA, image 4 of 8" loading="lazy">
+      <img src="/work/ma/ma-05.jpg" alt="MA, image 5 of 8" loading="lazy">
+      <img src="/work/ma/ma-06.jpg" alt="MA, image 6 of 8" loading="lazy">
+      <img src="/work/ma/ma-07.jpg" alt="MA, image 7 of 8" loading="lazy">
+      <img src="/work/ma/ma-08.png" alt="MA, image 8 of 8" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>MA</h1>
+      <p class="quiet">2023, Varnished acrylic on routered MDF, 32 x 71 x 1.5 in</p>
+
+      <p class="desc">The journey into patterns has been long and vast. Through exploration, stripping the idea of visual patterns down to their most basic form. A square comes up. The most simple shape for repetition. This ends up revealing itself in the real world through tiles. Losing myself to the magical world of islamic pattern tile-work. Playfully creating patterns I searched for meaning. I sat with this for a while. Pulling from my childhood in Miami, FL, Nautical flags came up. I was always drawn to the beautiful abstract flags used to communicate out at sea. Borrowing from that logic a new character set in a square format was created. Scouring the internet for all kinds of written languages, through different time periods and civilizations. This took me into a new way to explore the visual abstraction of language. Working on some sort of relative thirds and halves grid so they can relate to each other. Each one being different but somehow finding something that can relate with the next. Communication that is playful to decipher and read. It’s a fun way to look at the visual communication.</p>
+
+      <div class="buy">
+        <p class="quiet"><a class="inquire" href="#" data-subject="MA">Inquire</a></p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+{% include header.html footer=true %}
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>
