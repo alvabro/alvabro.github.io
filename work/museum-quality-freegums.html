@@ -1,0 +1,57 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Museum Quality Freegums — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/-NZoxpXYB-k" title="Museum Quality Freegums, video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <img src="/work/museum-quality-freegums/museum-quality-freegums-01.jpg" alt="Museum Quality Freegums, image 1 of 4" loading="lazy">
+      <img src="/work/museum-quality-freegums/museum-quality-freegums-02.jpg" alt="Museum Quality Freegums, image 2 of 4" loading="lazy">
+      <img src="/work/museum-quality-freegums/museum-quality-freegums-03.jpg" alt="Museum Quality Freegums, image 3 of 4" loading="lazy">
+      <img src="/work/museum-quality-freegums/museum-quality-freegums-04.jpg" alt="Museum Quality Freegums, image 4 of 4" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>Museum Quality Freegums</h1>
+      <p class="quiet">2008, Duration 4 minutes 49 seconds</p>
+
+      <div class="buy">
+        <p class="quiet"><a class="inquire" href="#" data-subject="Museum Quality Freegums">Inquire</a></p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+{% include header.html footer=true %}
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>

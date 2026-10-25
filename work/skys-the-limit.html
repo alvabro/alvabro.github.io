@@ -1,0 +1,57 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sky’s The Limit — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/3zz98wN1JwU" title="Sky’s The Limit, video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <img src="/work/skys-the-limit/skys-the-limit-01.jpg" alt="Sky’s The Limit, image 1 of 4" loading="lazy">
+      <img src="/work/skys-the-limit/skys-the-limit-02.jpg" alt="Sky’s The Limit, image 2 of 4" loading="lazy">
+      <img src="/work/skys-the-limit/skys-the-limit-03.jpg" alt="Sky’s The Limit, image 3 of 4" loading="lazy">
+      <img src="/work/skys-the-limit/skys-the-limit-04.jpg" alt="Sky’s The Limit, image 4 of 4" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>Sky’s The Limit</h1>
+      <p class="quiet">2010, Duration 2 minutes 6 seconds</p>
+
+      <div class="buy">
+        <p class="quiet"><a class="inquire" href="#" data-subject="Sky’s The Limit">Inquire</a></p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+{% include header.html footer=true %}
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>
