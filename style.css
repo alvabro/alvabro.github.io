@@ -33,22 +33,26 @@ body {
 a { color: inherit; }
 a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
-header {
+/* Header and footer share one design (see _includes/header.html) */
+.bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: baseline;
   gap: 0.75rem 1.5rem;
   padding: 1.1rem var(--pad) 0;
-  margin-bottom: clamp(3rem, 10vw, 9rem);
 }
-header a { text-decoration: none; }
-header a:hover { text-decoration: underline; text-underline-offset: 4px; }
+header.bar { margin-bottom: clamp(3rem, 10vw, 9rem); }
+footer.bar { padding-bottom: 1.5rem; }
+.bar a { text-decoration: none; }
+.bar a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.bar .site-name { text-decoration: underline; text-underline-offset: 4px; }
 .nav-end { display: flex; justify-content: space-between; }
 .contact { text-align: right; }
+/* Small screens: each item on its own line */
 @media (max-width: 40rem) {
-  header { grid-template-columns: 1fr 1fr; }
+  .bar { grid-template-columns: 1fr; gap: 0.5rem; }
   .nav-end { display: contents; }
-  .contact { grid-column: 2; }
+  .contact { text-align: left; }
 }
 
 /* Images take two thirds; details line up under the third nav column */
@@ -92,11 +96,6 @@ header a:hover { text-decoration: underline; text-underline-offset: 4px; }
 }
 .button:hover { opacity: 0.85; }
 
-.back { padding: 0 var(--pad) 4rem; }
-.back a { text-decoration: none; }
-.back a:hover { text-decoration: underline; text-underline-offset: 4px; }
-footer { padding: 0 var(--pad) 3rem; color: var(--quiet); font-size: 0.9rem; }
-
 /* Homepage grid (used by index.html) */
 .grid {
   display: grid;
@@ -132,3 +131,17 @@ footer { padding: 0 var(--pad) 3rem; color: var(--quiet); font-size: 0.9rem; }
 .tile:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
 .meta { display: block; opacity: 0.8; }
 @media (prefers-reduced-motion: reduce) { .label { transition: none; } }
+
+/* Rollover: the next photo fades in on hover (wide screens with a mouse only) */
+.tile .hover { display: none; }
+@media (min-width: 40rem) and (hover: hover) {
+  .tile .hover {
+    display: block;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .tile:hover .hover, .tile:focus-visible .hover { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .tile .hover { transition: none; } }
