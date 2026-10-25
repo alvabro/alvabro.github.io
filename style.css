@@ -35,8 +35,6 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
 /* Header and footer share one design (see _includes/header.html) */
 .bar {
-  font-family: "Helvetica Neue", Helvetica, "Inter Tight", Arial, sans-serif;
-  font-weight: 300;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: baseline;
@@ -47,12 +45,9 @@ header.bar { margin-bottom: clamp(3rem, 10vw, 9rem); }
 footer.bar { padding-bottom: 1.5rem; }
 .bar a { text-decoration: none; }
 .bar a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.bar .site-name {
-  font-family: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
+.bar .site-name { text-decoration: underline; text-underline-offset: 4px; }
+/* Shop, Info, Instagram: same font as the name, one size smaller */
+.bar a:not(.site-name) { font-size: 0.875em; }
 .nav-end { display: flex; justify-content: space-between; }
 .contact { text-align: right; }
 /* Small screens: each item on its own line */
