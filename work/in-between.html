@@ -1,0 +1,62 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In-between — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/m04ijcNMN04" title="In-between, video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <img src="/work/in-between/in-between-01.jpg" alt="In-between, image 1 of 6" loading="lazy">
+      <img src="/work/in-between/in-between-02.jpg" alt="In-between, image 2 of 6" loading="lazy">
+      <img src="/work/in-between/in-between-03.jpg" alt="In-between, image 3 of 6" loading="lazy">
+      <img src="/work/in-between/in-between-04.jpg" alt="In-between, image 4 of 6" loading="lazy">
+      <img src="/work/in-between/in-between-05.jpg" alt="In-between, image 5 of 6" loading="lazy">
+      <img src="/work/in-between/in-between-06.jpg" alt="In-between, image 6 of 6" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>In-between</h1>
+      <p class="quiet">2011, Narwhal Art Projects, Toronto, Canada</p>
+      <p class="desc">Narwhal Art Projects presents IN-BETWEEN a solo exhibition by Alvaro Ilizarbe / Freegums. For this show Alvaro is exploring space, patterns, and the energy that lies in-between. He has painted black and white patterns on amorphous wooden pieces which hang on an identically patterned wallpaper. The wood paintings’ swirling lines blend seamlessly into the background, becoming one. Contrasting line work creates a visual vibration and a tension within the space. Through this, Alvaro is revealing the awareness of spatial energy that lies between oneself and the object.</p>
+      <p class="desc">Narwhal Art Projects 680 Queen St. West Toronto, ON CANADA M6J1E5</p>
+      <p class="desc">Opening Friday, May 13th 7-10pm (Show runs May 13th – June 12, 2011)</p>
+
+      <div class="buy">
+        <p class="quiet"><a class="inquire" href="#" data-subject="In-between">Inquire</a></p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+{% include header.html footer=true %}
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>
