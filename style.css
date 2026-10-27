@@ -53,6 +53,7 @@ footer.bar { padding-bottom: 1.5rem; }
 /* Small screens: each item on its own line */
 @media (max-width: 40rem) {
   .bar { grid-template-columns: 1fr; gap: 0.5rem; }
+  .bar .site-name { margin-bottom: 0.3rem; } /* extra room under the underlined name */
   .nav-end { display: contents; }
   .contact { text-align: left; }
 }
