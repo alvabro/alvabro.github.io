@@ -1,0 +1,55 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toyota — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <img src="/work/toyota/toyota-01.jpg" alt="Toyota, image 1 of 4">
+      <img src="/work/toyota/toyota-02.jpg" alt="Toyota, image 2 of 4" loading="lazy">
+      <img src="/work/toyota/toyota-03.jpg" alt="Toyota, image 3 of 4" loading="lazy">
+      <img src="/work/toyota/toyota-04.jpg" alt="Toyota, image 4 of 4" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>Toyota</h1>
+      <p class="quiet">2017</p>
+      <p class="desc">Commission to paint a Toyota CH-R 2017 for Toyota to promote car at special activations.</p>
+
+      <div class="buy">
+        <p class="quiet"><a class="inquire" href="#" data-subject="Toyota">Inquire</a></p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+{% include header.html footer=true %}
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>

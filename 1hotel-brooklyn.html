@@ -1,0 +1,61 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1 Hotel Brooklyn Bridge — Alvaro Ilizarbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+{% include header.html %}
+
+<main>
+  <article class="work">
+
+    <div class="images">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-01.jpg" alt="1 Hotel Brooklyn Bridge, image 1 of 9">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-02.jpg" alt="1 Hotel Brooklyn Bridge, image 2 of 9" loading="lazy">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-03.jpg" alt="1 Hotel Brooklyn Bridge, image 3 of 9" loading="lazy">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-04.jpg" alt="1 Hotel Brooklyn Bridge, image 4 of 9" loading="lazy">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-05.jpg" alt="1 Hotel Brooklyn Bridge, image 5 of 9" loading="lazy">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-06.jpg" alt="1 Hotel Brooklyn Bridge, image 6 of 9" loading="lazy">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-07.jpg" alt="1 Hotel Brooklyn Bridge, image 7 of 9" loading="lazy">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-08.jpg" alt="1 Hotel Brooklyn Bridge, image 8 of 9" loading="lazy">
+      <img src="/work/1hotel-brooklyn/1hotel-brooklyn-09.jpg" alt="1 Hotel Brooklyn Bridge, image 9 of 9" loading="lazy">
+    </div>
+
+    <div class="details">
+      <h1>1 Hotel Brooklyn Bridge</h1>
+      <p class="quiet">2017, Installation</p>
+      <p class="desc">Landscape study installation mural inside 1Hotels Brooklyn bridge, NY.</p>
+      <p class="desc">1 Hotel Brooklyn Bridge, 60 Furman St, Brooklyn, NY 11201</p>
+
+      <div class="buy">
+        <p class="quiet"><a class="inquire" href="#" data-subject="1 Hotel Brooklyn Bridge">Inquire</a></p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+{% include header.html footer=true %}
+
+<script>
+/* The email address is assembled only when Inquire is clicked, so it never sits in the page as plain text for spam bots to collect. */
+document.querySelectorAll('.inquire').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var address = ['alvaro.ilizarbe', 'gmail.com'].join('@');
+    location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('Inquiry: ' + a.dataset.subject);
+  });
+});
+</script>
+
+</body>
+</html>
