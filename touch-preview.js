@@ -1,5 +1,5 @@
 /* Touch screens have no hover, so press and hold (or slide a finger) over a homepage
-   image to see its rollover photo and title. A quick tap still opens the page. */
+   image to see its rollover photo and title. A quick tap still opens the page, and the page scrolls normally the whole time. */
 (function () {
   if (!window.matchMedia('(hover: none)').matches) return;
 
@@ -54,9 +54,9 @@
       }
       return;
     }
-    e.preventDefault();        /* keep the page still while previewing */
+    /* Scrolling is left alone: as the page moves under the finger, the preview follows */
     setActive(tileAt(p.clientX, p.clientY));
-  }, { passive: false });
+  }, { passive: true });
 
   function end() {
     clearTimeout(timer);

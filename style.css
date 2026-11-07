@@ -159,6 +159,6 @@ footer.bar { padding-bottom: 1.5rem; }
 /* Touch screens: press and hold a homepage image to see its rollover photo and title
    (see touch-preview.js) */
 .tile { -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
-.tile img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
+.tile img { pointer-events: none; -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
 .tile.is-touched .hover { display: block; position: absolute; inset: 0; opacity: 1; }
 .tile.is-touched .label { opacity: 1; }
