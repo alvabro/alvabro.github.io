@@ -150,3 +150,10 @@ footer.bar { padding-bottom: 1.5rem; }
   .tile:hover .hover, .tile:focus-visible .hover { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .tile .hover { transition: none; } }
+
+/* Touch screens: press and hold a homepage image to see its rollover photo and title
+   (see touch-preview.js) */
+.tile { -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+.tile img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
+.tile.is-touched .hover { display: block; position: absolute; inset: 0; opacity: 1; }
+.tile.is-touched .label { opacity: 1; }
