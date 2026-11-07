@@ -58,6 +58,11 @@ footer.bar { padding-bottom: 1.5rem; }
   .contact { text-align: left; }
 }
 
+/* Small screens only: footer items line up flush right (wide screens match the header) */
+@media (max-width: 40rem) {
+  footer.bar, footer.bar .contact { text-align: right; }
+}
+
 /* Images take two thirds; details line up under the third nav column */
 .work {
   display: grid;
